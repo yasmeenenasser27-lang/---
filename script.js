@@ -38,7 +38,7 @@ themeBtn.addEventListener("click", () => {
 // --- 3. نظام التسبيح التفاعلي ---
 // استرجاع البيانات عند الفتح
 window.onload = () => {
-  for (let i = 1; i <= 14; i++) {
+  for (let i = 1; i <= 15; i++) {
     let id = "c" + i;
     let savedVal = localStorage.getItem(id);
     const card = document.getElementById(id);
@@ -91,7 +91,7 @@ function updateProgress(id, currentVal, maxVal) {
 
 // تصفير جميع العدادات
 function resetCounters() {
-  for (let i = 1; i <= 14; i++) {
+  for (let i = 1; i <= 15; i++) {
     let id = "c" + i;
     document.getElementById(id).innerText = "0";
     localStorage.removeItem(id);
