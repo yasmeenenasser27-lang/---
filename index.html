@@ -5,6 +5,17 @@
     <meta name="google" content="notranslate" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>صدقة جارية - عطيات علي سليمان</title>
+
+    <!-- إعدادات PWA: تثبيت الموقع كتطبيق على الموبايل -->
+    <meta name="theme-color" content="#059669" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" href="./icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="صدقة جارية" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
     <!-- خطوط عربية فاخرة -->
     <link
       href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap"
@@ -1576,6 +1587,15 @@
         this.style.backgroundColor = "#27ae60";
         this.style.transform = "scale(1)";
       });
+
+      // تسجيل Service Worker عشان الموقع يشتغل من غير إنترنت
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./sw.js")
+            .catch((err) => console.log("SW registration failed:", err));
+        });
+      }
     </script>
   </body>
 </html>
